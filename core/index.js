@@ -1,7 +1,7 @@
 var injection = require('../services/injection.js');
 var Q = require('q');
 var util = require('util');
-var http = require('request');
+var http = require('http');
 
 function configure() {
     injection.bindFactory('entityCrudStrategy', require('../services/crud/entity-crud-strategy'));
@@ -46,7 +46,7 @@ function configure() {
         return Q;
     });
     injection.bindFactory('ValidationError', require('../services/validation-error'));
-    injection.bindFactory('Request', require('request'));
+    injection.bindFactory('Request', require('http'));
 
     injection.bindFactory('passwordFieldName', function () { return 'passwordHash' }); //TODO make more clear
     injection.bindFactory('defaultAppConfig', require('./default-app-config'));
