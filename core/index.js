@@ -46,7 +46,7 @@ function configure() {
         return Q;
     });
     injection.bindFactory('ValidationError', require('../services/validation-error'));
-    injection.bindFactory('Request', request);
+    injection.bindFactory('Request', require('request'));
 
     injection.bindFactory('passwordFieldName', function () { return 'passwordHash' }); //TODO make more clear
     injection.bindFactory('defaultAppConfig', require('./default-app-config'));
