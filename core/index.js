@@ -1,7 +1,6 @@
 var injection = require('../services/injection.js');
 var Q = require('q');
 var util = require('util');
-var http = require('request');
 
 function configure() {
     injection.bindFactory('entityCrudStrategy', require('../services/crud/entity-crud-strategy'));
@@ -46,7 +45,7 @@ function configure() {
         return Q;
     });
     injection.bindFactory('ValidationError', require('../services/validation-error'));
-    injection.bindFactory('Request', require('http'));
+    injection.bindFactory('Request', require('https'));
       injection.bindFactory("Database", function(storageDriver) {
     var connection = storageDriver.mongooseConnection();
     return {
