@@ -1,7 +1,7 @@
 var injection = require('../services/injection.js');
 var Q = require('q');
 var util = require('util');
-var http = require('http');
+var http = require('request');
 
 function configure() {
     injection.bindFactory('entityCrudStrategy', require('../services/crud/entity-crud-strategy'));
